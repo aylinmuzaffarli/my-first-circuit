@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First Circuit</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;500&display=swap');
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #ffffff;
+      color: #2c2118;
+      margin: 0;
+      padding: 80px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #1f160f;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      font-size: 1.35rem;
+      color: #9c7a5a;
+      margin-bottom: 60px;
+      font-weight: 400;
+    }
+
+    img {
+      max-width: 460px;
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(31, 22, 15, 0.15);
+      margin-bottom: 70px;
+      border: 1px solid #f8f1e3;
+    }
+
+    .text-container {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    #typingText {
+      font-size: 1.28rem;
+      color: #3c2a1f;
+      text-align: left;
+      min-height: 240px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2.5px;
+      height: 1.1em;
+      background: #9c7a5a;
+      vertical-align: middle;
+      animation: blink 0.9s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    footer {
+      margin-top: 90px;
+      color: #9c7a5a;
+      font-size: 1.02rem;
+      font-weight: 400;
+    }
+
+    .heart {
+      color: #a33;
+      animation: heartbeat 2.5s infinite ease-in-out;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+    }
+  </style>
+</head>
+<body>
+  <h1>My First Circuit</h1>
+  <p class="subtitle">LED Heartbeat • My First Electronics Project</p>
+
+  <img src="led.jpeg" alt="My LED Circuit">
+
+  <div class="text-container">
+    <p id="typingText"></p>
+  </div>
+
+  <footer>
+  Aylin • March 2026<br>
+  Made with <span class="heart">♥</span>
+</footer>
+
+  <script>
+    const fullText = "This is my first electronics project. I made an LED blink like a heartbeat. It’s simple, yet it sparked my curiosity and inspired me to explore and create more. Every blink reminds me how satisfying it is to bring ideas to life.";
+
+    let i = 0;
+    const element = document.getElementById('typingText');
+
+    function type() {
+      if (i < fullText.length) {
+        element.textContent += fullText.charAt(i);
+        i++;
+        setTimeout(type, 38);
+      } else {
+        element.innerHTML += '<span class="cursor"></span>';
+      }
+    }
+
+    // Gentle start delay
+    setTimeout(type, 700);
+  </script>
+</body>
+</html>
